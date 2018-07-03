@@ -1,18 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App1</title>
+    <title>One Month Rails Project</title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= link_to "Home", root_path %>
-    <%= link_to "About Us", about_path %>
-    <%= link_to "Contact Us", contact_us_path %>
+
+    <!-- Navigation Bar -->
+    <div class="container">
+    <nav class="navbar navbar-inverse navbar-expand-sm bg-inverse">
+      <!-- <div class="container"> -->
+        <%= link_to "One Month Rails", root_path, class: "navbar-brand" %>
+        <ul class="nav navbar-nav">
+          <li class="nav-item"><%= link_to "Home", root_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "About", about_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Contact", contact_us_path, class: "nav-link" %></li>
+        </ul>
+      <!-- </div> -->
+    </nav>
+    </div>
+
+    <!-- Page Content -->
     <%= yield %>
+
+    <!-- Footer -->
+    <footer class="small text-muted">
+      <div class="container">
+        <hr>
+        <center>
+          <p>© 2016 One Month</p>
+        </center>
+      </div>
+    </footer>
+
   </body>
 </html>
