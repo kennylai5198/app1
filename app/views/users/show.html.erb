@@ -1,0 +1,47 @@
+<!-- <div class="container">
+  <h1><%= @user.username %></h1>
+  <p><%= @user.name %></p>
+</div> -->
+
+
+<div class="container">
+
+
+  <div class="row">
+      <div class="col-md-4">
+        <% if user_signed_in? %>
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= @user.username %></h5>
+              <p class="card-text"><%= @user.name %></p>
+            </div>
+          </div>
+        <% else %>
+          <p> Please sign up to post tweets! </p>
+        <% end %>
+      </div>
+      <div class="col-md-8">
+        
+
+          <ul class="list-group">
+              <% @tweets.each do |tweet| %>
+
+                  <%= link_to tweet, class: "list-group-item list-group-item-action" do %>
+
+                      <h5><%= tweet.user.username %></h5>
+
+                    <p><%= tweet.content %></p>
+                      <small>
+                        <% if tweet.user == current_user %>
+                          <%= link_to 'Edit', edit_tweet_path(tweet) %>
+                          <%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %>
+                        <% end %>
+                      </small>
+                  <% end %>
+
+              <% end %>
+          </ul>
+
+    </div>
+  </div>
+</div>
