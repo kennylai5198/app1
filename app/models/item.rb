@@ -4,4 +4,7 @@ class Item < ApplicationRecord
   validates :user, presence: true
   validates :title, presence: true
   validates :url, presence: true
+
+  acts_as_votable
+
 end

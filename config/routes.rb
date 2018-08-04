@@ -15,8 +15,15 @@ Rails.application.routes.draw do
       delete 'unfollow', to: 'follows#destroy'
     end
   end
-  resources :items
+  resources :items do
+    member do
+      post 'vote', to: 'votes#create'
+      delete 'unvote', to: 'votes#destroy'
+    end
+  end
+
   resources :tweets
+
   # ActiveAdmin.routes(self)
   # devise_for :users
   # as :user do
